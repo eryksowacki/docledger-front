@@ -63,10 +63,6 @@ export interface AdminUserUpdateRequest {
   lastName?: string | null;
 }
 
-/* =========================================================
- *  KSIĘGOWOŚĆ: Kategorie / Kontrahenci / Dokumenty / Księga
- * ========================================================= */
-
 export type DocumentType = "INCOME" | "COST" | string;
 export type DocumentStatus = "BUFFER" | "BOOKED" | string;
 
@@ -93,10 +89,6 @@ export interface DocumentBookResponse {
   ledgerNumber: number;
 }
 
-/**
- * /api/ledger (GET) – zwracasz:
- * ledgerNumber, eventDate, description, type, netAmount, grossAmount
- */
 export interface LedgerRow {
   ledgerNumber: number;
   eventDate: string;
@@ -105,10 +97,6 @@ export interface LedgerRow {
   netAmount: number;
   grossAmount: number;
 }
-
-/* =========================================================
- *  Parametry list / filtry (dla serwisów frontu)
- * ========================================================= */
 
 export type SortDir = "asc" | "desc";
 

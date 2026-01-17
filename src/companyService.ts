@@ -30,12 +30,6 @@ function buildQuery(params?: CompanyListParams): string {
   return str ? `?${str}` : "";
 }
 
-/**
- * Backend może zwracać:
- * - Company[]
- * - { data: Company[] }
- * - { data: Company[], meta, links } (paginacja)
- */
 type CompaniesApiResponse =
   | Company[]
   | { data: Company[] }
@@ -83,12 +77,6 @@ export async function updateCompany(
   });
 }
 
-/**
- * Ważne: używamy apiFetch, żeby:
- * - wysyłać cookies (credentials: include)
- * - wysyłać XSRF token (X-XSRF-TOKEN)
- * - mieć spójne parsowanie błędów
- */
 export async function deleteCompany(id: number): Promise<void> {
   await apiFetch<void>(`/api/admin/companies/${id}`, { method: "DELETE" });
 }

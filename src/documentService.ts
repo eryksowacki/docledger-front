@@ -17,14 +17,6 @@ function buildQuery(params: Record<string, string | undefined>) {
   return s ? `?${s}` : "";
 }
 
-/**
- * Backend może zwracać:
- * - [] (idealnie)
- * - { data: [] } (Laravel Resource / paginator)
- * - { items: [] } / { rows: [] } (custom)
- *
- * Ta funkcja zawsze zwróci TABLICĘ, żeby .map() nie wybuchał.
- */
 function unwrapList<T>(payload: any): T[] {
   if (Array.isArray(payload)) return payload;
 

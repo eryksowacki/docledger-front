@@ -10,12 +10,6 @@ function buildQuery(params: Record<string, string | undefined>) {
   return s ? `?${s}` : "";
 }
 
-/**
- * Backend może zwracać:
- * - CategoryRow[]
- * - { data: CategoryRow[] }
- * - { data: CategoryRow[], meta, links } (paginacja)
- */
 type CategoriesApiResponse =
   | CategoryRow[]
   | { data: CategoryRow[] }

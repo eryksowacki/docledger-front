@@ -6,10 +6,6 @@ function getCookie(name: string): string | null {
   return m ? decodeURIComponent(m[2]) : null;
 }
 
-/**
- * Sanctum SPA: dociąga CSRF cookie (XSRF-TOKEN) jeśli go nie ma.
- * To jest wymagane dla stateful POST/PATCH/DELETE (inaczej 419).
- */
 async function ensureCsrfCookie(): Promise<void> {
   if (getCookie("XSRF-TOKEN")) return;
 
